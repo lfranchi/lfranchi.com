@@ -1,0 +1,6 @@
+-----
+:title: lfranchi.com - Tag 'kde' (Atom Feed)
+:type: feed
+:permalink: tags/kde/atom
+-----
+<%= atom_feed(:articles => articles_tagged_with('kde'))%>

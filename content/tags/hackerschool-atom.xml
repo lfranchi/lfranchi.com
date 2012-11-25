@@ -1,0 +1,6 @@
+-----
+:title: lfranchi.com - Tag 'hackerschool' (Atom Feed)
+:type: feed
+:permalink: tags/hackerschool/atom
+-----
+<%= atom_feed(:articles => articles_tagged_with('hackerschool'))%>
