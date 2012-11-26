@@ -17,10 +17,15 @@ compile '/stylesheet/' do
   # don’t filter or layout
 end
 
+compile /(rss|atom)/ do
+  filter :erb unless rep.binary? # e.g. rss.png image
+end
+
 compile '*' do
  # item[:extension] returns 'html.erb' for multi-dotted filename
   ext = item[:extension].nil? ? nil : item[:extension].split('.').last
 
+  # puts "Compiling #{item[:title]} with ext: #{ext}"
   if ext == 'erb'
     filter :erb
   elsif ext == 'haml' || ext.nil?

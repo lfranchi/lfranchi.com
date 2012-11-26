@@ -2,6 +2,9 @@
 title: Software Transactional Memory
 kind: article
 created_at: 2012-11-02 06:33:00 -4000
+tags:
+    - hackerschool
+    - clojure
 ---
 # <%=h @item[:title] %>
 

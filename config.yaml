@@ -19,6 +19,12 @@ index_filenames: [ 'index.html' ]
 # before and after the last site compilation.
 enable_output_diff: false
 
+# Blogging required params
+base_url: "http://lfranchi.com"
+author_name: "Leo Franchi"
+author_email: "lfranchi@kde.org"
+author_uri: "http://lfranchi.com"
+
 prune:
   # Whether to automatically remove files not managed by nanoc from the output
   # directory. For safety reasons, this is turned off by default.

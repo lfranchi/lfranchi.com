@@ -1,35 +1,60 @@
-Crashlog created at 2012-11-17 21:46:17 -0500
+Crashlog created at 2012-11-26 09:59:46 -0500
 
 === MESSAGE:
 
-LoadError: cannot load such file -- mime/types
-Try installing the 'mime-types' gem (`gem install mime-types`) and then re-running the command.
+Haml::SyntaxError: Invalid attribute list: "(title:\"\#{@article.attributes[:created_at].to_iso8601_time}\")".
 
 === COMPILATION STACK:
 
-  (empty)
+  - [item]   /tags/clojure/ (rep default)
 
 === BACKTRACE:
 
-  0. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
-  1. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
-  2. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/extra/auto_compiler.rb:17:in `initialize'
-  3. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/commands/autocompile.rb:42:in `new'
-  4. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/commands/autocompile.rb:42:in `run'
-  5. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/command_runner.rb:14:in `block in call'
-  6. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/error_handler.rb:63:in `handle_while'
-  7. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
-  8. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/command_runner.rb:13:in `call'
-  9. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command_dsl.rb:185:in `block in runner'
-  10. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command.rb:296:in `call'
-  11. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command.rb:296:in `run_this'
-  12. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command.rb:249:in `run'
-  13. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command.rb:262:in `run'
-  14. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli.rb:52:in `block in run'
-  15. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/error_handler.rb:63:in `handle_while'
-  16. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
-  17. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli.rb:50:in `run'
-  18. /usr/local/bin/nanoc:19:in `<main>'
+  0. layout /dated_article/:3
+  1. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/parser.rb:534:in `block in parse_new_attributes'
+  2. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/parser.rb:528:in `loop'
+  3. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/parser.rb:528:in `parse_new_attributes'
+  4. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/parser.rb:479:in `parse_tag'
+  5. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/parser.rb:280:in `tag'
+  6. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/parser.rb:186:in `process_line'
+  7. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/parser.rb:148:in `parse'
+  8. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/engine.rb:124:in `initialize'
+  9. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/filters/haml.rb:23:in `new'
+  10. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/filters/haml.rb:23:in `run'
+  11. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/helpers/rendering.rb:120:in `render'
+  12. item /tags/clojure/ (rep default):5:in `block (2 levels) in render'
+  13. item /tags/clojure/ (rep default):4:in `each'
+  14. item /tags/clojure/ (rep default):4:in `block in render'
+  15. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/engine.rb:191:in `eval'
+  16. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib/haml/engine.rb:191:in `render'
+  17. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/filters/haml.rb:23:in `run'
+  18. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/result_data/item_rep.rb:348:in `filter'
+  19. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/item_rep_proxy.rb:47:in `filter'
+  20. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/rule_context.rb:54:in `filter'
+  21. ./Rules:32:in `block in load'
+  22. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/rule.rb:68:in `instance_eval'
+  23. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/rule.rb:68:in `apply_to'
+  24. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/compiler.rb:381:in `compile_rep'
+  25. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/compiler.rb:337:in `block in compile_reps'
+  26. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/compiler.rb:330:in `loop'
+  27. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/compiler.rb:330:in `compile_reps'
+  28. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/compilation/compiler.rb:85:in `run'
+  29. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/base/source_data/site.rb:58:in `compile'
+  30. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/commands/compile.rb:62:in `run'
+  31. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/command_runner.rb:14:in `block in call'
+  32. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/error_handler.rb:63:in `handle_while'
+  33. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
+  34. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/command_runner.rb:13:in `call'
+  35. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command_dsl.rb:185:in `block in runner'
+  36. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command.rb:296:in `call'
+  37. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command.rb:296:in `run_this'
+  38. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command.rb:249:in `run'
+  39. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib/cri/command.rb:262:in `run'
+  40. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli.rb:52:in `block in run'
+  41. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/error_handler.rb:63:in `handle_while'
+  42. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
+  43. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib/nanoc/cli.rb:50:in `run'
+  44. /usr/local/bin/nanoc:19:in `<main>'
 
 === VERSION INFORMATION:
 
@@ -45,9 +70,11 @@ Darwin lycophron.local 12.2.0 Darwin Kernel Version 12.2.0: Sat Aug 25 00:48:52 
   adsf 1.1.1
   bigdecimal 1.1.0
   bud 0.9.5
+  builder 3.1.4
   colored 1.2
   cri 2.3.0
   eventmachine 1.0.0
+  extlib 0.9.15
   fastercsv 1.5.5
   fssm 0.2.9
   getopt 1.4.1
@@ -56,6 +83,7 @@ Darwin lycophron.local 12.2.0 Darwin Kernel Version 12.2.0: Sat Aug 25 00:48:52 
   json 1.5.4
   kramdown 0.14.0
   macaddr 1.6.1
+  mime-types 1.19
   minitest 2.5.1
   msgpack 0.4.7
   nanoc 3.4.2
@@ -73,12 +101,12 @@ Darwin lycophron.local 12.2.0 Darwin Kernel Version 12.2.0: Sat Aug 25 00:48:52 
 
 === ENVIRONMENT:
 
-Apple_PubSub_Socket_Render => "/tmp/launch-QKsCym/Render"
-Apple_Ubiquity_Message => "/tmp/launch-5eVm5V/Apple_Ubiquity_Message"
+Apple_PubSub_Socket_Render => "/tmp/launch-j3hZry/Render"
+Apple_Ubiquity_Message => "/tmp/launch-2DE6y7/Apple_Ubiquity_Message"
 COLORFGBG => "7;0"
 COMMAND_MODE => "unix2003"
 CPUCOUNT => "8"
-DISPLAY => "/tmp/launch-CUm9pb/org.macosforge.xquartz:0"
+DISPLAY => "/tmp/launch-hA78dw/org.macosforge.xquartz:0"
 EDITOR => "vim"
 EMAIL => "lfranchi@kde.org"
 GIT_AUTHOR_EMAIL => "lfranchi@kde.org"
@@ -88,8 +116,8 @@ GOPATH => "/Users/leo/src/gocode"
 HISTFILE => "/Users/leo/.zsh_history"
 HISTSIZE => "9999999"
 HOME => "/Users/leo"
-ITERM_PROFILE => "Hotkey Window"
-ITERM_SESSION_ID => "w1t0p0"
+ITERM_PROFILE => "Default"
+ITERM_SESSION_ID => "w1t1p0"
 KDABSVN => "svn+ssh://leo@svn.kdab.com/home/SVN-klaralv"
 LANG => "en_US.UTF-8"
 LESS_TERMCAP_mb => "\e[01;31m"
@@ -102,7 +130,7 @@ LESS_TERMCAP_us => "\e[01;32m"
 LESS_TERMEND => "\e[0m"
 LOGNAME => "leo"
 MAKEFLAGS => "-j8"
-OLDPWD => "/Users/leo/src"
+OLDPWD => "/Users/leo"
 PATH => "/Users/leo/src/gocode/bin:/Users/leo/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/texbin"
 PWD => "/Users/leo/src/lfranchi.com"
 QTEST_COLORED => "1"
@@ -110,7 +138,7 @@ SAVEHIST => "9999999"
 SECURITYSESSIONID => "186a4"
 SHELL => "/bin/bash"
 SHLVL => "1"
-SSH_AUTH_SOCK => "/tmp/launch-eQfg98/Listeners"
+SSH_AUTH_SOCK => "/tmp/launch-9Hx1Q0/Listeners"
 SVN_EDITOR => "vim"
 TERM => "xterm-256color"
 TERM_PROGRAM => "iTerm.app"
@@ -129,12 +157,14 @@ __CF_USER_TEXT_ENCODING => "0x1F5:0:0"
   1. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/colored-1.2/lib
   2. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/cri-2.3.0/lib
   3. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/nanoc-3.4.2/lib
-  4. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/rack-1.4.1/lib
-  5. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/site_ruby/1.9.1
-  6. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/site_ruby/1.9.1/x86_64-darwin12.2.0
-  7. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/site_ruby
-  8. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/vendor_ruby/1.9.1
-  9. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/vendor_ruby/1.9.1/x86_64-darwin12.2.0
-  10. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/vendor_ruby
-  11. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/1.9.1
-  12. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/1.9.1/x86_64-darwin12.2.0
+  4. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/kramdown-0.14.0/lib
+  5. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/haml-3.1.7/lib
+  6. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/gems/1.9.1/gems/builder-3.1.4/lib
+  7. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/site_ruby/1.9.1
+  8. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/site_ruby/1.9.1/x86_64-darwin12.2.0
+  9. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/site_ruby
+  10. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/vendor_ruby/1.9.1
+  11. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/vendor_ruby/1.9.1/x86_64-darwin12.2.0
+  12. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/vendor_ruby
+  13. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/1.9.1
+  14. /usr/local/Cellar/ruby/1.9.3-p286/lib/ruby/1.9.1/x86_64-darwin12.2.0

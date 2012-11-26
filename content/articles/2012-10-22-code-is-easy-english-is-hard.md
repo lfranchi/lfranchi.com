@@ -2,6 +2,8 @@
 title: Writing code is easy, writing English is hard
 kind: article
 created_at: 2012-10-22 12:00:00 -4000
+tags:
+    - hackerschool
 ---
 # <%=h @item[:title] %>
 

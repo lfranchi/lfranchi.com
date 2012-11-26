@@ -2,6 +2,9 @@
 title: Qt and Websockets
 kind: article
 created_at: 2012-08-19 12:00:00 -4000
+tags:
+    - kde
+    - qt
 ---
 # <%=h @item[:title] %>
 

@@ -2,6 +2,9 @@
 title: Tomahawk 0.2 released!
 kind: article
 created_at: 2011-08-16 12:00:00 -4000
+tags:
+    - kde
+    - qt
 ---
 # <%=h @item[:title] %>
 

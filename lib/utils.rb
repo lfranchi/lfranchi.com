@@ -1,25 +1,23 @@
 module SiteUtils
 
-#     def write_tag_page(dir, tag, count)
-#         meta = {}
-#         meta[:title] = "Tag: #{tag}"
-#         meta[:type] = 'page'
-#         meta[:filters_pre] = ['erb']
-#         meta[:feed] = "/tags/#{tag}/"
-#         meta[:feed_title] = "Tag '#{tag}'"
-#         meta[:permalink] = tag
-#         pl = (count == 1) ? ' is' : 's are'
-#         contents = %{
-# <p>#{count} item#{pl} tagged with <em>#{tag}</em>:</p>
-# <ul>
-#     <% articles_tagged_with('#{tag}').each do |a| %>
-#         <%= render 'dated_article', :article => a %>
-#     <% end %>
-# </ul>
-#         }
-#         # Write html page
-#         write_item dir/"#{tag}.textile", meta, contents
-#     end
+    def write_tag_page(dir, tag, count)
+        meta = {}
+        meta[:title] = "Tag: #{tag}"
+        meta[:type] = 'page'
+        meta[:feed] = "/tags/#{tag}/"
+        meta[:feed_title] = "Tag '#{tag}'"
+        meta[:permalink] = tag
+        pl = (count == 1) ? ' is' : 's are'
+        contents = %{
+%p 
+    #{count} item#{pl} tagged with <em>#{tag}</em>:
+%ul
+    - articles_tagged_with('#{tag}').each do |a| 
+        = render 'dated_article', :article => a
+    }
+        # Write html page
+        write_item dir/"#{tag}.haml", meta, contents
+    end
 
     def write_tag_feed_page(dir, tag, format)
         f = format.downcase

@@ -2,6 +2,9 @@
 title: Implementation of Clojure's STM
 kind: article
 created_at: 2012-11-12 16:11:00 -4000
+tags:
+    - hackerschool
+    - clojure
 ---
 # <%=h @item[:title] %>
 

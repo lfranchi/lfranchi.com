@@ -2,6 +2,9 @@
 title: Moving media players into the future, and Camp KDE
 kind: article
 created_at: 2011-03-25 12:00:00 -4000
+tags:
+    - kde
+    - qt
 ---
 # Tomahawk Player #
 

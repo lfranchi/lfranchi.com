@@ -16,8 +16,8 @@ namespace :site do
     #     (output/'data').mkpath
     # end
 
-    # task :update => [:tags, :archives, :compile] do
-    # end
+    task :update => [:tags, :archives, :compile] do
+    end
 
     # task :compile do
     #     system "nanoc co"
@@ -49,7 +49,7 @@ namespace :site do
         tags.each_pair do |k, v|
             unless (dir/"#{k}.textile").exist? && (dir/"#{k}-rss.xml").exist? && (dir/"#{k}-atom.xml").exist? then
                 puts "Creating tag pages for '#{k}'"
-                # write_tag_page dir, k, v 
+                write_tag_page dir, k, v 
                 # We're in the 20th century, no RSS needed :)
                 # write_tag_feed_page dir, k, 'RSS' 
                 write_tag_feed_page dir, k, 'Atom' 
