@@ -1,0 +1,14 @@
+-----
+:title: ! 'Tag: kde'
+:type: page
+:feed: /tags/kde/
+:feed_title: Tag 'kde'
+:permalink: kde
+-----
+
+%p 
+    3 items are tagged with <em>kde</em>:
+%ul
+    - articles_tagged_with('kde').each do |a| 
+        = render 'dated_article', :article => a
+    

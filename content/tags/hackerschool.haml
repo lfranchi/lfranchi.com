@@ -1,0 +1,14 @@
+-----
+:title: ! 'Tag: hackerschool'
+:type: page
+:feed: /tags/hackerschool/
+:feed_title: Tag 'hackerschool'
+:permalink: hackerschool
+-----
+
+%p 
+    3 items are tagged with <em>hackerschool</em>:
+%ul
+    - articles_tagged_with('hackerschool').each do |a| 
+        = render 'dated_article', :article => a
+    
