@@ -20,12 +20,12 @@ Compass.add_project_configuration('compass-config.rb')
 
 # Compiling rules
 
-compile '/style/*/' do
-  filter :sass, Compass.sass_engine_options
-end
-
 compile '/style/_*/' do
   # don’t compile partials
+end
+
+compile '/style/*/' do
+  filter :sass, Compass.sass_engine_options
 end
 
 compile /(rss|atom)/ do
