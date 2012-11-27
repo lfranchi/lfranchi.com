@@ -1,6 +1,6 @@
 -----
 :title: lfranchi.com - Tag 'qt' (Atom Feed)
-:type: feed
+:kind: feed
 :permalink: tags/qt/atom
 -----
 <%= atom_feed(:articles => articles_tagged_with('qt'))%>

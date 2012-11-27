@@ -1,0 +1,12 @@
+-----
+:title: ! 'Archive: August 2012'
+:kind: page
+:permalink: august-2012
+-----
+
+%p
+    1 article was written in <em>August 2012</em>
+%ul
+    - articles_by_month.select{ |i| i[0] == "August 2012"}[0][1].each do |a|
+        = render 'dated_article', :article => a
+    
