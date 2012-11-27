@@ -19,13 +19,14 @@ require 'compass'
 Compass.add_project_configuration('compass-config.rb')
 
 # Compiling rules
+sass_options = Compass.sass_engine_options
 
 compile '/style/_*/' do
   # don’t compile partials
 end
 
 compile '/style/*/' do
-  filter :sass, Compass.sass_engine_options
+  filter :sass, sass_options.merge(:syntax => item[:extension].to_sym)
 end
 
 compile /(rss|atom)/ do
