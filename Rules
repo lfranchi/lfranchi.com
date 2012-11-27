@@ -18,7 +18,8 @@ compile '/stylesheet/' do
 end
 
 compile /(rss|atom)/ do
-  filter :erb unless rep.binary? # e.g. rss.png image
+  filter :haml, :format => :html5
+  layout 'none'
 end
 
 compile '*' do
@@ -42,6 +43,14 @@ end
 
 route '/stylesheet/' do
   '/style.css'
+end
+
+route /^\/tags\/.+?-(atom|rss)/ do
+  item.identifier.gsub(/(.+)-(rss|atom)\/$/, '\1/\2') + '.xml'
+end
+
+route '/(atom|rss)/' do
+  item.identifier.chop + '.xml'
 end
 
 # Provide a better url/path for blog articles instead of articles/name.html

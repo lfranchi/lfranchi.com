@@ -65,33 +65,35 @@ namespace :site do
         end
     end
 
-#     task :archives do
-#         site = Nanoc3::Site.new('.')
-#         dir = Pathname(Dir.pwd)/'content/archives'
-#         dir.rmtree if dir.exist?
-#         dir.mkpath
-#         m_articles = []
-#         index = -1
-#         current_month = ""
-#         # Collect month and page data
-#         articles = site.items.select{|p| p.attributes[:date] && p.attributes[:type] == 'article'}.sort{|a, b| a.attributes[:date] <=> b.attributes[:date]}.reverse 
-#         articles.each do |a|
-#             month = a.attributes[:date].strftime("%B %Y")
-#             if current_month != month then
-#                 # new month
-#                 m_articles << [month, [a]]
-#                 index = index + 1
-#                 current_month = month
-#             else
-#                 # same month
-#                 m_articles[index][1] << a
-#             end
-#         end
-#         # Write pages
-#         m_articles.each do |m|
-#             write_archive_page dir, m[0], m[1].length
-#         end
-#     end
+    task :archives do
+        site = Nanoc3::Site.new('.')
+        dir = Pathname(Dir.pwd)/'content/archives'
+        dir.rmtree if dir.exist?
+        dir.mkpath
+        m_articles = []
+        index = -1
+        current_month = ""
+        # Collect month and page data
+        articles = site.items.select{ |p| 
+                    p.attributes[:created_at] && p.attributes[:kind] == 'article'}.sort{|a, b| 
+                        a.attributes[:created_at] <=> b.attributes[:created_at]}.reverse
+        articles.each do |a|
+            month = a.attributes[:created_at].strftime("%B %Y")
+            if current_month != month then
+                # new month
+                m_articles << [month, [a]]
+                index = index + 1
+                current_month = month
+            else
+                # same month
+                m_articles[index][1] << a
+            end
+        end
+        # Write pages
+        m_articles.each do |m|
+            write_archive_page dir, m[0], m[1].length
+        end
+    end
 
 #     task :article, :name do |t, args|
 #         raise RuntimeError, "Name not specified" unless args[:name]

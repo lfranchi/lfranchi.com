@@ -37,7 +37,33 @@ module Nanoc::Helpers::Tagging
     end
 
     def articles_tagged_with(tag)
-        @site.items.select{|p| p.attributes[:tags] && p.attributes[:tags].include?(tag)}.sort{|a,b| a.attributes[:date] <=> b.attributes[:date]}.reverse
+        @site.items.select{|p| p.attributes[:tags] && p.attributes[:tags].include?(tag)}.sort{|a,b| a.attributes[:created_at] <=> b.attributes[:created_at]}.reverse
     end
 
+    def latest_articles(max=nil)
+        total = @site.items.select{|p| p.attributes[:kind] == 'article'}.sort{|a, b| a.attributes[:created_at] <=> b.attributes[:created_at]}.reverse 
+        max ||= total.length
+        total[0..max-1]
+    end
+
+    def articles_by_month
+        articles = latest_articles
+        m_articles = []
+        index = -1
+        current_month = ""
+        articles.each do |a|
+            next unless a.attributes[:created_at]
+            month = a.attributes[:created_at].strftime("%B %Y")
+            if current_month != month then
+                # new month
+                m_articles << [month, [a]]
+                index = index + 1
+                current_month = month
+            else
+                # same month
+                m_articles[index][1] << a
+            end
+        end
+        m_articles
+    end
 end
