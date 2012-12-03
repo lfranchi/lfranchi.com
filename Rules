@@ -34,6 +34,9 @@ compile /(rss|atom)/ do
   layout 'none'
 end
 
+compile '/images/*' do
+end
+
 compile '*' do
  # item[:extension] returns 'html.erb' for multi-dotted filename
   ext = item[:extension].nil? ? nil : item[:extension].split('.').last
@@ -46,7 +49,7 @@ compile '*' do
   elsif ext == 'md' || ext == 'markdown'
     filter :erb
     filter :kramdown
-  else
+  elsif
     raise "Filter is not configured for #{item.identifier} in Rules file."
   end
 
@@ -71,6 +74,10 @@ end
 
 route '/(atom|rss)/' do
   item.identifier.chop + '.xml'
+end
+
+route /\/(images|img|files|favicon|robots)\// do
+  item.identifier.chop + ".#{item[:extension]}"
 end
 
 # Provide a better url/path for blog articles instead of articles/name.html

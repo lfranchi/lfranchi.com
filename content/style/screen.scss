@@ -1,82 +1,66 @@
 @import "base";
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Georgia, Palatino, Times, 'Times New Roman', sans-serif;
-}
+@import "compass";
 
 body {
-  background: #fff;
+  background-image: url($imgs + "/light_noise_diagonal.png");
 }
 
-a {
-  text-decoration: none;
+#header {
+  text-align: center;
 
-  &:link, &:visited {
-    color: #f30;
-  }
-
-  &:hover {
-    color: #f90;
-  }
-}
-
-#main {
-  position: absolute;
-  top: 40px;
-  left: 280px;
-  width: 500px;
+  font-family: $title-font;
 
   h1 {
-    font-size: 40px;
-    font-weight: normal;
-    line-height: 40px;
-    letter-spacing: -1px;
-  }
-
-  p {
-    margin: 20px ;
-    font-size: 15px;
-    line-height: 20px;
-  }
-
-  ul {
-    margin: 20px;
-  }
-
-  li {
-    list-style-type: square;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 80px;
+    margin: 0px;
   }
 }
 
+$navheader-height: 40px;
+$navheader-width: 250px;
 
-#sidebar {
-  position: absolute;
-  top: 40px;
-  left: 20px;
-  width: 200px;
-  padding: 20px 20px 0 0;
-  border-right: 1px solid #ccc;
-  text-align: right;
+#nav {
+  margin-left: auto;
+  margin-right:auto;
 
-  h2 {
-    text-transform: uppercase;
-    font-size: 13px;
-    color: #333;
-    letter-spacing: 1px;
-    line-height: 20px;
-  }
+  height: $navheader-height;
+  width: $navheader-width;
+
+  font-family: $title-font;
+  font-size: 24px;
 
   ul {
+    margin: 0px;
+    padding: 0px;
+
     list-style-type: none;
-    margin: 20px 0;
+
+    li {
+      display: inline;
+      float: left;
+
+      margin-left: 20px;
+      height: 40px;
+
+      a {
+        text-decoration: none;
+        color: $header-color;
+      }
+    }
   }
-  
-  li {
-    font-size: 14px;
-    line-height: 20px;
-  }
+}
+
+#nav-separator {
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  height: 1px;
+  width: 100%;
+
+  @include background-image(linear-gradient(left, rgba(0,0,0,0), 
+                                                  rgba(0,0,0,0)    38%, 
+                                                  rgba(0,0,0,0.65) 50%, 
+                                                  rgba(0,0,0,0)    59%, 
+                                                  rgba(0,0,0,0)));
 }
