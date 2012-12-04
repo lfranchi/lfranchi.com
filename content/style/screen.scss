@@ -5,6 +5,15 @@ body {
   background-image: url($imgs + "/light_noise_diagonal.png");
 }
 
+a {
+  text-decoration: none;
+  color: $header-color;
+
+  &:hover {
+    color: $header-onhover-color;
+  }
+}
+
 #header {
   text-align: center;
 
@@ -13,6 +22,8 @@ body {
   h1 {
     font-size: 80px;
     margin: 0px;
+
+    color: $title-color;
   }
 }
 
@@ -41,11 +52,6 @@ $navheader-width: 250px;
 
       margin-left: 20px;
       height: 40px;
-
-      a {
-        text-decoration: none;
-        color: $header-color;
-      }
     }
   }
 }
@@ -63,4 +69,44 @@ $navheader-width: 250px;
                                                   rgba(0,0,0,0.65) 50%, 
                                                   rgba(0,0,0,0)    59%, 
                                                   rgba(0,0,0,0)));
+}
+
+#content {
+  font-family: $body-font;
+  font-size: $body-font-size;
+  color: $body-color;
+}
+
+#about {
+  width: 350px;
+
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+#article {
+  width: 700px;
+
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  #title {
+    text-align: center;
+
+    font-family: $header-font;
+    font-size: 18px;
+  }
+
+  #article-header {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  #article-body {
+    margin-top: 20px;
+  }
 }

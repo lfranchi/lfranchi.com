@@ -6,8 +6,6 @@ tags:
     - hackerschool
     - clojure
 ---
-# <%=h @item[:title] %>
-
 In my last post I talked about software transactional memory (STM) in general, and briefly described how Clojure implements an STM model. Here I will attempt to exhaustively describe all the moving parts that make up Clojure's STM. This won't be a complete reference guide on a method-by-method basis as [Vollkmann's article](http://java.ociweb.com/mark/stm/article.html) is, however I will attempt to make it a bit more concise and readable without sacrificing much information. 
 
 The goal is that after reading this article, the reader should fully understand all the moving parts of how an STM (and in specific Clojure's) is implemented, and more clearly understand the trade-offs that are at play. As briefly mentioned in my last post, there is a very real performance impact that has to be kept in mind, so knowing where and why will help the reader decide when something approximating an STM is a good choice.

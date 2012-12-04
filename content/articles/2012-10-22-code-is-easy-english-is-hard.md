@@ -5,9 +5,6 @@ created_at: 2012-10-22 12:00:00 -4000
 tags:
     - hackerschool
 ---
-# <%=h @item[:title] %>
-
-
 Here I am at the beginning of week 4 of Hacker School, and I've still not spent the time to sit down and reflect on what my goals are---what am I here to learn, what scares me as a programmer, and what do I want to get out of these three months? 
 
 Fellow Hacker School-er Oskar [wrote a great blog post](http://oskarth.com/spendtime.html) about the things he wants to learn. This is my attempt to focus a bit on articulating my goals and ways to get there.

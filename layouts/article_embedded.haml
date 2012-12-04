@@ -1,0 +1,11 @@
+- author = @item[:author] || "Leo Franchi"
+#article
+    #article-header
+        %h2#title
+            %a{href:permalink_for_article(@item)}
+                = @item[:title]
+        %p#date
+            %time{datetime:@item[:created_at].strftime("%Y-%m-%d"), pubdate:"pubdate"}
+                = @item[:created_at].strftime("%A, %B %d %Y")
+    #article-body{class: "#{classes}"}
+        = @item.compiled_content()

@@ -5,6 +5,12 @@ include Nanoc3::Helpers::LinkTo
 
 module Nanoc::Helpers::Tagging
 
+    def permalink_for_article(article)
+        # Keep in sync with routing rule in Rules
+        y,m,d,slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/.match(article.identifier).captures
+        return "/#{y}/#{m}/#{slug}/"
+    end
+
     def site_tags
         ts = {}
         @items.each do |p|

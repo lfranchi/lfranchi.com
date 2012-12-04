@@ -6,8 +6,6 @@ tags:
     - kde
     - qt
 ---
-# Tomahawk Player #
-
 I’ve been pretty quiet lately, but not because I haven’t been getting my code on. I’ve joined up with Chris (muesli from amarok 1.x fame) and some others (jefferai, domme) to work on a new Qt/FOSS media player. Now before we all collectively groan and moan “not another media player!!” hear me out—we’re different.  Those of you who had the luck^W^W^W^Wtorture of attending my talks at Camp KDE or Akademy last year probably know that I am obsessed with one simple question when it comes to media players: playing you what you want. That means two things—being smart and helping you find new music and making it possible to play music that you don’t physically have on your hard drive. Tomahawk solves these problems and more:
 
 * Why can’t I easily listen to all the music I have scattered across **multiple computers**, at **multiple locations**, from a **single interface**?

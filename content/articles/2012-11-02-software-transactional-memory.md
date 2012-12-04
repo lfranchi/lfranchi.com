@@ -6,8 +6,6 @@ tags:
     - hackerschool
     - clojure
 ---
-# <%=h @item[:title] %>
-
 Following on from my last post, here's my first report about the topics i've been working on and learning about here at Hacker School. My major project of the last two weeks has been twofold: learning more about Software Transactional Memory (STM) as a technique for writing safe performant concurrent code, and getting more familiar with writing real-world Python code.
 
 In order to learn more about STM i've been porting Clojure's STM system to clojure-py, and it's been a good way to force myself to fully understand how the STM system works---there's nothing like having to debug code to force to you understand it :) This blog post is meant to serve a guide for myself and others to STMs in general and clojure's STM in particular.

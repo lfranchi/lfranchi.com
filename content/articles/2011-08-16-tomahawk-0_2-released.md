@@ -6,8 +6,6 @@ tags:
     - kde
     - qt
 ---
-# <%=h @item[:title] %>
-
 > First to PlanetKDE readers: Tomahawk is not directly a KDE project, in that it is hosted on the KDE infrastructure. We do however use Phonon and have been working with Phonon developers to improve the state of our Phonon backends to get a truly hassle-free cross-platform audio framework. A positive outcome of the renewed development interest in Phonon has let us deploy Phonon-Vlc on all 3 linux/mac/windows platforms with absolutely no problems—not a mean feat. Anyway, back to the story.
 
 

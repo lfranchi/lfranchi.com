@@ -6,8 +6,6 @@ tags:
     - kde
     - qt
 ---
-# <%=h @item[:title] %>
-
 As most people are aware, HTML5 is the latest revision of the HTML standard that's all the rage nowadays. HTML5 comes with a lot of cool new features, but one new protocol that has been developed to ease bi-directional communication between a webpage and a server is called [WebSockets](https://en.wikipedia.org/wiki/WebSockets). WebSockets allow a client (webpage, or other) to open a TCP connection with a server and provides a low-level framing protocol to allow messages to be sent each way.
 
 
