@@ -20,20 +20,23 @@ Turns out there's not much out there in C++/Qt, with three notable exceptions:
 
 As QtWebKit supports many of the new HTML5 features, it also contains an implementation of a WebSocket client. It's as easy as doing the following:
 
-
-    var socket = new WebSocket("ws://echo.websocket.org");
-    socket.onmessage = function(msg) { console.log("Message: " + msg.data); };
-    socket.send("Hi!")
+<% highlight :js do %>
+var socket = new WebSocket("ws://echo.websocket.org");
+socket.onmessage = function(msg) { console.log("Message: " + msg.data); };
+socket.send("Hi!")
+<% end %>
 
 However, it turns out the protocol version of WebSockets that QtWebkit implements is the so-called Hixie76 version, which is from May 2010. The RFC version ([RFC 6455](https://tools.ietf.org/html/rfc6455)) is not compatible with the older Hixie76 and Hybi-* protocols, so if the server you need to connect to only supports the RFC, QtWebKit is not an option. That leaves you with websocket++.
 
 However, websocket++ is built via handwritten Makefiles, and the boost::asio code is very far from what Qt-loving developers are accustomed to. So I did my bit and tried to make it easier: by [porting it to cmake](https://github.com/lfranchi/websocketpp/commit/1a797f7de5a536d9741726a139ff9dbf7f96d1df "CMake Port") and [adding a Qt wrapper](https://github.com/lfranchi/websocketpp/commit/bc6d0fe96610ff7d6bd619a82f793b191c1a9405 "Qt Wrapper"). Now communicating to a RFC ws:// or wss:// endpoint is this easy:
 
-    WebSocketWrapper ws("ws://echo.websocket.org");
-    connect(&amp;ws, SIGNAL(message(QString)), this, SLOT(onMessage(QString)));
-    ws.start();
-    ws.send("Hello Websocket!")</pre>;
 
+<% highlight :cplusplus do %>
+WebSocketWrapper ws("ws://echo.websocket.org");
+connect(&amp;ws, SIGNAL(message(QString)), this, SLOT(onMessage(QString)));
+ws.start();
+ws.send("Hello Websocket!")</pre>;
+<% end %>
 
 You can find my fork of websocket++ here:
 

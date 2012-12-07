@@ -1,17 +1,10 @@
 @import "base";
+@import "typography";
+@import "code";
 @import "compass";
 
 body {
   background-image: url($imgs + "/light_noise_diagonal.png");
-}
-
-a {
-  text-decoration: none;
-  color: $header-color;
-
-  &:hover {
-    color: $header-onhover-color;
-  }
 }
 
 #header {
@@ -20,7 +13,7 @@ a {
   font-family: $title-font;
 
   h1 {
-    font-size: 80px;
+    font-size: 8em;
     margin: 0px;
 
     color: $title-color;
@@ -38,7 +31,16 @@ $navheader-width: 250px;
   width: $navheader-width;
 
   font-family: $title-font;
-  font-size: 24px;
+  font-size: 2.4em;
+
+  a {
+    text-decoration: none;
+    color: $header-color;
+
+    &:hover {
+      color: $header-onhover-color;
+    }
+  }
 
   ul {
     margin: 0px;
@@ -96,17 +98,34 @@ $navheader-width: 250px;
 
   #title {
     text-align: center;
+    a { color: $body-color; }
 
     font-family: $header-font;
-    font-size: 18px;
   }
 
   #article-header {
     text-align: center;
-    font-size: 12px;
+
+    #date {
+      margin: 0 0 0 0;
+      font-weight: bold;
+    }
   }
 
   #article-body {
     margin-top: 20px;
+
+    a {
+      text-decoration: none;
+      color: $link-color;
+
+      &:hover {
+        color: $link-onhover-color;
+      }
+    }
+
   }
+
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.3em; }
 }

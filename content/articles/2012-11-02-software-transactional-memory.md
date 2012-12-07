@@ -12,8 +12,7 @@ In order to learn more about STM i've been porting Clojure's STM system to cloju
 
 Essentially this will be a condensed and less useful version of this quite amazing article by R. Mark Vollkmann, [Software Transactional Memory](http://java.ociweb.com/mark/stm/article.html), where he goes through both the idea behind STM systems and then does a deep dive into the clojure STM itself. So while this blog post will pale in comparison to that STM bible, I hope it'll provide an overview and guide that can lay the foundation for deeper exploration.
 
-Why STM?
-========
+## Why STM?
 
 Writing concurrent code is more and more common, and the main tools I was familiar with before learning Clojure were your average low-level locking constructs: mutexes, semaphores, condition variables, etc. They all rely on explicit locking---the programmer needs to be aware of and properly manage concurrent access to shared state, carefully locking the most granular bits of state while at the same time avoiding deadlocks or livelocks between threads. 
 
@@ -21,21 +20,22 @@ Writing safe multithreaded code is hard, not in small part due to the fact that 
 
 On top of the difficulty of writing safe multithreaded code, a fundamental feature of lock-based code is that it is pessimistic. Locks assume that access to shared state needs to be exclusively accessed, and no other threads can access the same code at the same time (yes, there are read-write-locks, lock-free data structures, etc. With enough pain, anything is possible). STM systems operate on the opposite assumption: they are optimistic in nature. That is, they allow concurrent reads and writes to any variables with no user-space locking, and transactions will automatically be retried if there is a disagreement (or conflict) about the state or value of a variable. If it turns out, at runtime, that there isn't any conflict, there's no retiring that needs to happen
 
-STM Overview
-===========
+## STM Overview
 
 So what is Software Transactional Memory anyway? STM is a way of writing concurrent code that accesses shared memory without having to worry about individual synchronization/serialization of the shared memory accesses. A transaction in clojure looks a bit like this:
 
-    ; Setup
-    (def r (ref 1))
-    (defn divide-by-two [x] (/ x 2))
+<% highlight :clojure do %>
+; Setup
+(def r (ref 1))
+(defn divide-by-two [x] (/ x 2))
 
-    ; Transaction
-    (dosync
-        (alter r inc)
-        (alter r divide-by-two))
-    
-    (println @r) ; prints out "1" ((1 + 1) / 2)
+; Transaction
+(dosync
+    (alter r inc)
+    (alter r divide-by-two))
+
+(println @r) ; prints out "1" ((1 + 1) / 2)
+<% end %>
 
 The important part is that a transaction is enclosed in a block: (dosync ...body...) and all operations in the body are run in this one transaction. The body modifies global state---r in this example---without worrying about locking or who else might be trying to twiddle with r at the same time. 
 
@@ -51,13 +51,11 @@ The simulation then has many many threads that are all accessing, modifying, and
 
 Simulation code: [https://gist.github.com/1494094](https://gist.github.com/1494094)
 
-STM Internals
-==========
+## STM Internals
 
 This blog post is already too verbosely long, so an in-depth overview of how the STM is implemented will have to wait for a future post. However, here's a short overview of the different pieces that work together to  run the STM. This assumes a basic knowledge of clojure---refs and operations on refs such as commute, alter, ref-set, etc.
 
-Ref
-=====
+## Ref
 
 A ref is a variable with the concept of time. Since data is immutable in Clojure, whenever you dereference a ref, you get a piece of data that is guaranteed never to change. If a transaction modifies the ref in the future, you're still holding on to a 100% valid piece of data. Refs keep track of a value history---a linked list that contains the value of the ref at a particular point in time. 
 
@@ -65,13 +63,11 @@ When a transaction reads a reference, it looks for a value that was written *bef
 
 Any alter/commute/ref-set operations on a transaction simply call the associated method in LockingTransaction: doCommute, doSet. 
 
-LockingTransaction
-=================
+## LockingTransaction
 
 LockingTransaction is the main STM handling class. It's a thread-local object, so every running thread runs a separate transaction, and multiple transactions may be running at once. When the user runs a transaction with (dosync... ), a transaction object is created and it is given the body of the transaction to run. All operations on refs that occur during a transaction are logged---the newly changed values are temporarily stored by the transaction. When the body is completed, the transaction attempts to commit---that is, it attempts to get exclusive write access to the changed refs, and to change their values all at once. If there's a conflict during the run or commit process, the transaction is automatically re-tried, values are re-logged, and committing happens again. 
 
-STM Overhead
-===========
+## STM Overhead
 
 One of the main criticisms of STM is that it adds overhead. I don't have any hard numbers, but according to [this wikipedia article](https://en.wikipedia.org/wiki/Software_transactional_memory), the performance hit due to having to keep track of extra values (as each ref has a history chain of previous values) is usually not worse than two times as bad as fine-grained locking. The performance is worse the smaller number of processors/cores that are available, of course---and the more true concurrency that there is to exploit, the more the benefits of not having to worry about individual locking show through.
 

@@ -5,6 +5,5 @@ title: Leo's Blog
 - all_articles = latest_articles.length
 - latest = latest_articles 6
 
-#blog
-    - latest.each do |article|
-        = render 'article_embedded', :item => article, :classes => "hyphenate", :extended => true
+- latest.each do |article|
+    = render 'article_embedded', :item => article, :classes => "hyphenate", :extended => true

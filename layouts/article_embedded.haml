@@ -1,10 +1,10 @@
 - author = @item[:author] || "Leo Franchi"
 #article
     #article-header
-        %h2#title
+        %h1#title
             %a{href:permalink_for_article(@item)}
                 = @item[:title]
-        %p#date
+        #date
             %time{datetime:@item[:created_at].strftime("%Y-%m-%d"), pubdate:"pubdate"}
                 = @item[:created_at].strftime("%A, %B %d %Y")
     #article-body{class: "#{classes}"}

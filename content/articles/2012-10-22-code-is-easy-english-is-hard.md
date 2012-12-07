@@ -17,8 +17,7 @@ Overall goals
 3. The web stack
 
 
-New programming languages/paradigms
-===================================
+## New programming languages/paradigms
 
 As i've spent the better part of the last 6 or so years learning and refining my C++/Qt knowledge, it was high time I broke out of my bubble and learned something new. I decided to dive into Clojure, an opinionated purely functional language that's executed on top of the JVM.
 
@@ -26,14 +25,13 @@ I needed some concrete project to cut my teeth on, though, so after a tour of th
 
 Ono gave me a taste of real-life Clojure code, but I was looking for a more substantial project that would require me to dig deeper into Clojure, either by working on a more abstract project like a Domain Specific Language (ala [structjure](https://github.com/jamii/strucjure)) or by digging in to some internals. Thanks to Zach's suggestion I found the [clojure-py](http://gitub.com/halgary/clogure-py) project that aims to implement Clojure in pure python. As it is still only a partial port, there is still a lot of interesting work to be done at the intersection of Clojure, Python, and Java. So my next project is to port Clojure's Software Transactional Memory (STM) and refs to clojure-py. It should be meaty enough to occupy a couple of weeks and I'm interested to see how the transactional internals of Clojure's refs work.
 
-Concrete projects
------------------
+### Concrete projects
+
 * Ono - handy console app written in Clojure
 * Clojure-py - Port closure's java STM to Clojure-py
 
 
-Multi-threading, concurrency, distributed processing
-====================================================
+## Multi-threading, concurrency, distributed processing
 
 Over the last few months while I was still full-time at KDAB [http://www.kdab.com] I had been spending my 10% education time reading this [excellent book on C++11's new multithreading support](http://www.amazon.com/C-Concurrency-Action-Practical-Multithreading/dp/1933988770?tag=duckduckgo-d-20). It was the first deep-dive into multithreading I've embarked on, and while at times it's taken me a while to grasp some of the topics covered, it a topic that I find really fascinating. 
 
@@ -41,25 +39,24 @@ I'm particularly interested in different approaches to concurrency/multi-threadi
 
 An extension of this is distributed/parallel processing---breaking down large data and wiring w/ massively parallel systems. Something I'm interested in but don't even know where to start.
 
-Concrete projects
------------------
+### Concrete projects
+
 * Write something with high contention and concurrency in Go… project TBA
 * Design/Write/implement a thread-safe lock-free data structure [heap? tree? persistent trie? stack/queue?], of some sort, in some language (preferably not c++11, maybe Go if it has memory ordering semantics? rust? otherwise c++…)
 * Investigate big data handling---map/reduce ala hadoop, etc?
 
-Web Stack
-=========
+## Web Stack
 
 I'd like to familiarize myself with the pieces of the modern web stack. While I know JS/Python/etc as languages, I've never written any DOM-manipulating client-side code, or used things like postgres/mongo/riak (as different as they may be) for handling data, or had to write a REST api in any language. So I want to play around with these technologies and build something useful for me.
 
-Concrete projects
-===============
+### Concrete projects
+
+
 * ?
 * ?
 
 
-Final thoughts
-==============
+### Final thoughts
 
 These are big, hairy, ambitious goals. They're hard. If all else fails, remember:
 
