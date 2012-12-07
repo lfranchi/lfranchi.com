@@ -19,4 +19,17 @@
         %a{href: "/"} About
   %hr#nav-separator
   #content
-    = yield
+    -# MAJOR HACK copy and pasting contents of article_embedded b/c I can't figure out the proper way to make this work in a DRY way
+    - if @item[:kind] == 'article' then
+      #article
+        #article-header
+          %h1#title
+            %a{href:permalink_for_article(@item)}
+              = @item[:title]
+          #date
+            %time{datetime:@item[:created_at].strftime("%Y-%m-%d"), pubdate:"pubdate"}
+              = @item[:created_at].strftime("%A, %B %d %Y")
+        #article-body
+          = yield
+    - else
+      = yield
