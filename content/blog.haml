@@ -6,4 +6,5 @@ title: Leo's Blog
 - latest = latest_articles 6
 
 - latest.each do |article|
-    = render 'article_embedded', :item => article, :classes => "hyphenate", :extended => true
+    = render( 'article_embedded', :item => article, :extended => true ) do
+        = article.compiled_content( :snapshot => :pre )

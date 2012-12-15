@@ -7,5 +7,5 @@
         #date
             %time{datetime:@item[:created_at].strftime("%Y-%m-%d"), pubdate:"pubdate"}
                 = @item[:created_at].strftime("%A, %B %d %Y")
-    #article-body{class: "#{classes}"}
-        = @item.compiled_content()
+    #article-body
+        = yield

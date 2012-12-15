@@ -53,7 +53,12 @@ compile '*' do
     raise "Filter is not configured for #{item.identifier} in Rules file."
   end
 
-    layout 'default'
+  # individual article pages: articles are individually rendered and then passed on to the overall page
+  if item[:kind] == 'article'
+    layout 'article_embedded'
+  end
+
+  layout 'default'
 end
 
 # Routing rules
