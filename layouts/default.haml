@@ -19,17 +19,16 @@
         %a{href: "/"} About
   %hr#nav-separator
   #content
-    -# MAJOR HACK copy and pasting contents of article_embedded b/c I can't figure out the proper way to make this work in a DRY way
-    - if @item[:kind] == 'article' then
-      #article
-        #article-header
-          %h1#title
-            %a{href:permalink_for_article(@item)}
-              = @item[:title]
-          #date
-            %time{datetime:@item[:created_at].strftime("%Y-%m-%d"), pubdate:"pubdate"}
-              = @item[:created_at].strftime("%A, %B %d %Y")
-        #article-body
-          = yield
-    - else
-      = yield
+    = yield
+-# Tracking code
+:javascript
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33371955-1']);
+  _gaq.push(['_setDomainName', 'lfranchi.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
